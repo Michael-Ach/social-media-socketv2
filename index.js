@@ -2,9 +2,10 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const io = require("socket.io")(process.env.PORT, {
-    cors: {
-        "origin": "*",
-    },
+    allowRequest: (req, callback) => {
+        const noOriginHeader = req.headers.origin === undefined;
+        callback(null, noOriginHeader);
+    }
 });
 
 let users = [];
