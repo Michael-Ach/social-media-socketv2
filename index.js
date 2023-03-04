@@ -3,7 +3,7 @@ dotenv.config();
 
 const io = require("socket.io")(process.env.PORT, {
     cors: {
-        origin: "http://localhost:8080",
+        origin: "legends-mykv2.netlify.app",
         methods: ["GET", "POST", "PUT", "DELETE"]
       }
 });
